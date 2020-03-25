@@ -10,3 +10,13 @@
 ### 博客地址： https://blog.csdn.net/J080624/article/details/87923678?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task 
 ###条件1:扩容  
 ###条件2:多线程，rehash
+
+###计算机中磁盘存储数据最小单元是扇区，一个扇区的大小是 512 字节   
+### 而文件系统（例如XFS/EXT4）他的最小单元是块，一个块的大小是 4k   
+### 我们的 InnoDB 存储引擎也有自己的最小储存单元——页（Page），一个页的大小是 16K。
+
+##![Image text](2020_04/innodb底层存储.png)
+
+###innodb:数据存储由索引页和数据页组成，数据页存放具体的数据，一个页能存放16k数据，假设一条数据1k，就能存放16条数据，  
+索引页由：键值+指针组成（指针指向具体的页）  
+查找时，先找索引页，二分查找找到键值，对应的根页找到，在根页中，通过2分查找，找出具体的值； 
