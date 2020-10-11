@@ -8,7 +8,7 @@
 
 ##hashmap的多线程扩容造成链表死循环问题  
 ### 博客地址： https://blog.csdn.net/J080624/article/details/87923678?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task 
-###条件1:扩容  
+###条件1:扩容   
 ###条件2:多线程，rehash
 
 ###计算机中磁盘存储数据最小单元是扇区，一个扇区的大小是 512 字节   
@@ -17,7 +17,7 @@
 
 ##![Image text](2020_04/innodb底层存储.png)
 
-###innodb:数据存储由索引页和数据页组成，数据页存放具体的数据，一个页能存放16k数据，假设一条数据1k，就能存放16条数据，  
+###innodb:数据存储由索引页和数据页组成，数据页存放具体的数据，一个页能存放16k数据， 假设一条数据1k，就能存放16条数据，  
 索引页由：键值+指针组成（指针指向具体的页）  
 查找时，先找索引页，二分查找找到键值，对应的根页找到，在根页中，通过2分查找，找出具体的值； 
 InnoDB 存储引擎的最小存储单元是页，页可以用于存放数据也可以用于存放键值 + 指针，在 B+ 树中叶子节点存放数据，非叶子节点存放键值 + 指针。
@@ -28,7 +28,7 @@ hashMap：数组+链表（头插法），String,Integer都是final类，保证ha
 currentHashMap：16段segment,每个segment继承了ReentrantLock(粗粒度下性能好)，每个segment下是entry数组加链表   
 
 
-####jdk1.7 
+####jdk1.8
 hashMap：node数组，转为红黑树treeNode，数组+链表（尾插法），String,Integer都是final类，保证hashcode不变；  
 链表长度 > 8,转为红黑树（平衡2叉树）,<6的话，转为链表，中间有个7，避免频繁转换，   
 

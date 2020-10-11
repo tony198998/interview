@@ -22,3 +22,5 @@ AOF持久化以日志的形式记录服务器所处理的每一个写、删除�
 1、set a 12
    decr a  :后是11
    incr a : 后加1是12
+   
+2、数据结构：hash，String， list，set，zset
