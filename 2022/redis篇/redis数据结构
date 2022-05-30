@@ -1,0 +1,14 @@
+set保证无重复元素
+zset除了保证无重复元素，还给每个value添加了一个score，可以根据value排序，zset底层采用的是跳跃列表的数据结构来实现的
+zset的内部实现：一个hash字典，一个跳跃列表
+
+
+redis另外功能：
+1、geo，地理位置，可以添加若干城市的地理位置经纬度，计算两个城市之间的距离
+2、hyperloglog：基数命令，自己感觉类似set，可以用于统计网站的访问量，内部去重
+3、bitmap：位存储：可用于布隆过滤器
+
+
+
+备注：
+redis的汇总资料网址：https://blog.csdn.net/weixin_43829443/article/details/112839985?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165361166116781685373900%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165361166116781685373900&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-112839985-null-null.142^v11^control,157^v12^control&utm_term=redis&spm=1018.2226.3001.4187
