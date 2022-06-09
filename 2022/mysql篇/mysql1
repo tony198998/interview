@@ -1,0 +1,6 @@
+1.服务器负载高，服务超时，CPU利用率高                                                      命令：show-busiest-java-threads
+2.java.long.NoClassDefFoundError,java.lang.ClassNotFoundException,程序未按照预期运行    命令:find-in-jar
+3.程序未按照预期运行，上线后未执行新逻辑，查找某些关键字                                       命令：grep-in-jar
+4.Jar包版本冲突，程序未按照预期运行                                                        命令：grep-in-jar
+5.HTTP调用后发现未按照预期输出结果                                                        命令：http-spy
+6.数据库负载高、SQL超时                                                                 命令：show-mysql-qps
