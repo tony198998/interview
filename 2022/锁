@@ -1,0 +1,3 @@
+1、synchronized: “CAS+Mark word（对象头中）”,锁升级：无锁，偏向锁，轻量级锁，重量级锁
+
+2、lock（）：“CAS + volatile”：实现的核心时AQS，抽象队列同步器
