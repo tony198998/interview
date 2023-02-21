@@ -1,0 +1,4 @@
+
+select  遍历selector中的channel， 底层数组实现，最大连接数受限于内核，IO效率一般
+poll    遍历selector中的channel， 底层链表实现，最大连接数无上限，IO效率一般
+epoll   事件回调，              底层红黑树实现，最大连接数无上限，IO效率高
