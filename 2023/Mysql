@@ -23,3 +23,18 @@ Read UNCOMMITERD: 读未提交，允许脏读
 READ COMMMITED:防止脏读
 repeatable read：防止脏读和不可重读，默认隔离级别
 SERIALIZABLE:事务串行
+
+
+锁的粒度区分：
+1、全局锁：加锁之后整个数据库实例都处于只读状态，所有数据变更操作都会被挂起，一般用于全库备份的时候
+共享锁：读锁， select xxx LOCK IN SHARE MODE
+排它锁：写锁，只有一个事务能获得排他锁，其他事务不能获取该行的锁，INNODB 会对update、delete、insert 语句自动添加排他锁。select xxx for update；
+2、行锁：加锁粒度小，加锁资源开销比较大，INNODB才支持
+3、表锁:加锁粒度大，加锁资源开销比较小，Myisam和innodb都支持
+
+间隙锁：RR隔离级别下，会加间隙锁，锁一定的范围，而不锁具体的记录，为了防止幻读
+next-key：间隙锁 + 右记录锁
+
+
+mysql索引结构
+AVL树：树种任意节点的两个子树的高度差最大为1
